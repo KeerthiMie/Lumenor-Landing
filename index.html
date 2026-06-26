@@ -3598,6 +3598,27 @@
         {
           scroll-behavior: smooth;
         }
+            /* ===== SMOOTH SCROLLING FIXES ===== */
+    html {
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+    }
+    
+    section {
+        scroll-margin-top: 80px;
+    }
+    
+    /* ===== OPTIONAL: Gentle scroll snap ===== */
+    .section-4,
+    .journey-section,
+    .blueprint-section,
+    .product-showcase {
+        scroll-snap-align: start;
+    }
+    
+    html {
+        scroll-snap-type: y proximity;
+    }
     </style>
 </head>
 <body>
@@ -4441,9 +4462,9 @@
             scrollTrigger: {
                 trigger: storySection,
                 pin: true,
-                scrub: 0.8,
+                scrub: 1.2,
                 start: 'top top',
-                end: '+=400%',
+                end: '+=300%',
                 invalidateOnRefresh: true,
                 anticipatePin: 1
             },
@@ -4478,9 +4499,9 @@
     scrollTrigger: {
         trigger: showcaseSection,
         pin: true,
-        scrub: 1.8,                    // ← INCREASED for smoother interpolation
+        scrub: 1.4,                    // ← INCREASED for smoother interpolation
         start: 'top top',
-        end: '+=400%',                  // ← EXTENDED for more scroll room
+        end: '+=320%',                  // ← EXTENDED for more scroll room
         invalidateOnRefresh: true,
         anticipatePin: 1,
         markers: false
@@ -4489,11 +4510,11 @@
 });
 
 showcaseTl
-    .to(showcaseCards[0], { duration: 1.5 })
-    .to(showcaseCards[0], { opacity: 0, x: -140, duration: 1.2, ease: 'power2.inOut' })
+    .to(showcaseCards[0], { duration: 1.4 })
+    .to(showcaseCards[0], { opacity: 0, x: -130, duration: 1.2, ease: 'power2.inOut' })
     .to(showcaseCards[1], { opacity: 1, x: 0, duration: 1.2, ease: 'power2.out' }, '-=0.6')
-    .to(showcaseCards[1], { duration: 1.5 })
-    .to(showcaseCards[1], { opacity: 0, x: -140, duration: 1.2, ease: 'power2.inOut' })
+    .to(showcaseCards[1], { duration: 1.4 })
+    .to(showcaseCards[1], { opacity: 0, x: -130, duration: 1.2, ease: 'power2.inOut' })
     .to(showcaseCards[2], { opacity: 1, x: 0, duration: 1.2, ease: 'power2.out' }, '-=0.6')
     .to(showcaseCards[2], { duration: 1.2 });
 
